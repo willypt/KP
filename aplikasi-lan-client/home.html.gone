@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="product" content="Metro UI CSS Framework">
+    <meta name="description" content="Simple responsive css framework">
+    <meta name="author" content="Sergey S. Pimenov, Ukraine, Kiev">
+
+    <link href="css/metro-bootstrap.css" rel="stylesheet">
+    <!--<link href="css/metro-bootstrap-responsive.css" rel="stylesheet">-->
+    <link href="css/iconFont.css" rel="stylesheet">
+    <link href="css/adaptive-modal.css" rel="stylesheet">
+    
+    <!-- Load JavaScript Libraries -->
+    <script src="js/jquery/jquery.js"></script>
+    <script src="js/jquery/jquery.widget.min.js"></script>
+
+    <!-- Metro UI CSS JavaScript plugins -->
+    <script src="js/load-metro.js"></script> 
+   
+    <script src="js/jquery.adaptive-modal.js"></script>
+
+    <title>Aplikasi Perpustakaan</title>
+
+    <style>
+        .container {
+            width: 1040px;
+        }
+        
+        form fieldset .input-control, .tile-content label{
+            margin-left: 15px;
+        }
+        
+        form fieldset .search{
+            margin-top: 10px;
+            float: right;
+            margin-right: 15px;
+        }
+        
+        .tile-content label{
+            margin-top: 10px;
+        }
+        h1 {
+            font-smooth: always;
+            -webkit-font-smoothing: antialiased;
+        }
+        .buttonlink {
+            display: inline-block; 
+            color: white!important; 
+            padding: 2px 5px; 
+            background-color:grey; 
+            margin-top: 10px; 
+            float: right; 
+        }
+        .am-back {
+            border-radius: 5px;
+        }
+        .search {
+            float: right;
+        }
+    </style>
+</head>
+<body class="metro">
+    <div class="container">
+        <header class="margin20 nrm nlm">
+            <div class="clearfix">
+                <a class="place-left" href="#" title="">
+                    <h1>Perpustakaan</h1>
+                </a>
+            </div>
+            <div class="main-menu-wrapper">
+                <ul class="horizontal-menu nlm">
+                    <li><a href="home.html">beranda</a></li>
+                    <li><a href="home2.html">tentang kami</a></li>
+                    <li><a href="#">hubungi kami</a></li>
+                    <li class="place-right">
+                        <a class="am-remote-link animated scaleShow" href="./bitesize-content/loginform.php" data-remote="true" data-toggle="adaptive-modal" data-am-custom-bgcolor="#cccbcb" data-am-custom-class="modal1">masuk</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+
+        <div class="main-content clearfix animated scaleShow">
+            <div class="tile-area no-padding clearfix">
+                <div class="tile-group no-margin no-padding clearfix" style="width: 100%;">
+                    <div class="tile double quadro-vertical bg-gray ol-transparent" style="float: right; ">
+                        <div class="tile-content">
+                            <form>
+                                <fieldset>
+                                    <label>Cari</label>
+                                    <div class="input-control text size3">
+                                        <input type="text" name="q" placeholder="Search...">
+                                    </div>
+                                    
+                                    <label>Tipe</label>
+                                    <div class="input-control select text size3" data-role="input-control">
+                                        <select>
+                                            <option>Buku</option>
+                                            <option>Thesis</option>
+                                            <option>Jurnal</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="search ">
+                                        <a href="#" class="buttonlink animated scaleShow" data-toggle="adaptive-modal" data-title="<h1>Hasil Cari</h1><p>Hasil Cari disini. masih harus ubah dengan AJAX styled search result.</p>" data-am-custom-bgcolor="#cccbcb" data-am-custom-class="modal1">Cari</a>
+                                    </div>
+                                </fieldset>
+                            </form>
+                            
+                        </div>
+                    </div>
+
+                    <div class="tile quadro double-vertical ol-transparent animated scaleShow">
+                        <div class="tile-content">
+                            <div class="carousel" data-role="carousel" data-height="100%" data-width="100%" data-controls="false">
+                                <div class="slide">
+                                    <img src="images/1.jpg" />
+                                </div>
+                                <div class="slide">
+                                    <img src="images/2.jpg" />
+                                </div>
+                                <div class="slide">
+                                    <img src="images/3.jpg" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        <footer>
+            <div class="bottom-menu-wrapper">
+                <ul class="horizontal-menu compact">
+                    <li>&copy; 2014 PERPUSTAKAAN</li>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Legal</a></li>
+                    <li><a href="#">Advertise</a></li>
+                    <li><a href="#">Help</a></li>
+                    <li><a href="#">Feedback</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+    </div>
+</body>
+        <script>
+        // This script fixes the shift that occurs in a centered layout when the page grows and forces scrollbars to appear.
+$(function () {
+    var body = $("body");
+ 
+    var previousWidth = null;
+ 
+    // Function that applies padding to the body to adjust its position.
+    var resizeBody = function () {
+        var currentWidth = body.width();
+        if (currentWidth != previousWidth) {
+            previousWidth = currentWidth;
+ 
+            // Measure the scrollbar size
+            body.css("overflow", "hidden");
+            var scrollBarWidth = body.width() - currentWidth;
+            body.css("overflow", "auto");
+ 
+            body.css("margin-left", scrollBarWidth + "px");
+        }
+    };
+ 
+    // setInterval is required because the resize event is not fired when a scrollbar appears or disappears.
+    setInterval(resizeBody, 100);
+    resizeBody(); 
+});
+$('a').each(function(){$(this).attr('href',this.href); console.log('asdasd')});
+$(document).ready(function() {
+
+        $(".am-remote-link").adaptiveModal({
+          success: function(data) {
+            console.log(data);
+            $(".am-remote").html(data);
+          }
+      });
+    });
+        </script>
+</html>
